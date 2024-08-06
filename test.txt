@@ -1,5 +1,2 @@
 harst
-tset
-tes
-tse
 
