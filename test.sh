@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function ver_idf() {
-    local_version=0.0.3
+    local_version=0.0.0
 
     latest_version=$(curl -s https://api.github.com/repos/Harshj054/test/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
 
@@ -10,8 +10,9 @@ function ver_idf() {
         read -p "Do you want to update to the latest version? (y/n): " choice
         if [ "$choice" == "y" ]; then
             echo "Updating to version $latest_version..."
-            git clone https://github.com/Harshj054/test.git
+            wget -O "$0" https://raw.githubusercontent.com/Harshj054/test/main/test.sh
             echo "Update completed."
+            local_version=$latest_version
         else
             echo "Update canceled."
         fi
